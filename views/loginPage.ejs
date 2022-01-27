@@ -11,9 +11,12 @@
       <div class="flex-div">
         <div class="name-content">
           <h1 class="logo">BuyMe</h1>
-
+          <% if(error) { %>
+            <p style="color: red"> <%= error %></p>
+          <% } %> 
         </div>
-          <form>
+
+          <form action="/login" method="post">
             <input type="text" name="username" placeholder="Username" required />
             <input type="password" name="password" placeholder="Password" required>
             <button class="login">Log In</button>

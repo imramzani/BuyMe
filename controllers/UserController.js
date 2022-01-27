@@ -87,7 +87,7 @@ class UserController {
             req.session.userId = user.id
             req.session.role = user.role
 
-            return res.redirect("/product")
+            return res.redirect("/products")
           } else {
             const error = "invalid username/password"
             return res.redirect(`/login?error=${error}`)

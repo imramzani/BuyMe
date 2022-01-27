@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BuyMe</title>
+    <css-doodle>
+        :doodle {
+          @grid: 18 / 100vmax;
+          background: #0a0c27;
+        }
+        --hue: calc(180 + 1.5 * @row * @col);
+        background: hsl(var(--hue), 50%, 70%);
+        margin: -.5px;
+        transition: @r(.5s) ease;
+        clip-path: polygon(@pick(
+          '0 0, 100% 0, 100% 100%',
+          '0 0, 100% 0, 0 100%',
+          '0 0, 100% 100%, 0 100%',
+          '100% 0, 100% 100%, 0 100%'
+        ));
+      </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.24.2/css-doodle.min.js"></script>
+
+      <script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+crossorigin="anonymous"
+></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../public/css/regisPage.css">
+    <title>Registration Form</title>
 </head>
 <body>
-  silakan login utk melanjutkan
+<div class="card">
+
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+        <div class="card-body text-dark">
+            <h1 class="card-title">BuyMe</h1>
+            <p class="card-text">Welcome to BuyMe, your one stop shopping spot.</p>
+            <p class="card-text">You might neeed to register before getting the full experience of our service</p>
+            <p class="card-text"p>Sign up <a href="/regisdetails">here</a></p>
+            <p class="card-text">If you have an account</a></p>
+            <p class="card-text">Sign in <a href="/login">here</a></p>
+        </div>
+      </div>
+
+</div>
+
 </body>
 </html>

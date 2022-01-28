@@ -20,9 +20,9 @@ router.post("/regis/:id", UserController.postRegis)
 router.get("/login", UserController.getLogin)
 router.post("/login", UserController.postLogin)
  
-const session = function (req, res, next) {
+const isLogin = function (req, res, next) {
   console.log(req.session)
-  if(req.session.id){
+  if(!req.session.userId){
     let error = `Please login`
     res.redirect(`/login?error=${error}`)
   } else {
@@ -32,14 +32,14 @@ const session = function (req, res, next) {
 
 const isAdmin = function (req,res, next){
   console.log(req.session)
-  if (req.session.role === "admin"){
-    res.redirect("/users")
+  if (req.session.role !== "admin"){
+    res.redirect("/products")
   } else {
     next()
   }
 }
 
-router.get("/users", UserController.getUser)
+router.get("/users", isLogin ,isAdmin , UserController.getUser)
 
 
 

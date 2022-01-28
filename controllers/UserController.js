@@ -8,6 +8,7 @@ class UserController {
   static getUser(req, res){
     User.findAll()
       .then( data =>{
+        console.log(data)
         res.render("user", {data})
       })
       .catch( err => {

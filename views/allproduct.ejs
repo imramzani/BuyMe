@@ -13,16 +13,6 @@
 </head>
 <body>
 
-  <div>
-    <form action="/products" method="get">
-      <button type="submit" class="btn btn-light" id="category" name="CategoryId" value="">All Product</button>
-      <button type="submit" class="btn btn-light" id="category" name="CategoryId" value="3">Toys</button>
-      <button type="submit" class="btn btn-light" id="category" name="CategoryId" value="1">Groceries</button>
-      <button type="submit" class="btn btn-light" id="category" name="CategoryId" value="2">Books</button>
-
-    </form>
-  </div>
-  
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">--BUYME--</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,15 +23,22 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="/products">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/users">User <span class="sr-only">(current)</span></a>
+
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </nav>
   <br><br><br><br>
+  <div>
+    <form action="/products" method="get">
+      <button type="submit" class="btn btn-light" id="category" name="CategoryId" value="">All Product</button>
+      <button type="submit" class="btn btn-light" id="category" name="CategoryId" value="3">Toys</button>
+      <button type="submit" class="btn btn-light" id="category" name="CategoryId" value="1">Groceries</button>
+      <button type="submit" class="btn btn-light" id="category" name="CategoryId" value="2">Books</button>
+
+    </form>
+  </div>
 
   <h1>PRODUCTS</h1>
   <br><br><br>

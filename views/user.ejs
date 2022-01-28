@@ -17,7 +17,7 @@
       <th>Username</th>
       <th>email</th>
       <th>role</th>
-      <th>Action</th>
+      <th>joined since</th>
     </tr>
     <% data.forEach( (el, i) => { %>
     <tr>  
@@ -25,9 +25,8 @@
       <td> <%= el.username %></td>
       <td> <%= el.email %></td>
       <td> <%= el.role %></td>
-      <td>
-         <a href="/user/: <%= el.id %> " class="btn btn-secondary" >See user details</a>
-        </td>
+      <td> <%= el.newDate %></td>
+
     </tr>
     <% }) %>
     

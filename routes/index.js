@@ -33,15 +33,13 @@ const session = function (req, res, next) {
 const isAdmin = function (req,res, next){
   console.log(req.session)
   if (req.session.role === "admin"){
-    res.redirect("/user")
-  } else if (req.session.role !== "admin"){
-    res.redirect("/products")
+    res.redirect("/users")
   } else {
     next()
   }
 }
 
-router.get("/user", isAdmin , UserController.getUser)
+router.get("/users", UserController.getUser)
 
 
 

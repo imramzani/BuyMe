@@ -26,7 +26,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-     return queryInterface.removeColumn('Products','categoryId')
+     return queryInterface.removeColumn('Products','CategoryId')
   }
 };
 

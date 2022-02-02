@@ -27,7 +27,7 @@ class UserController {
       where : { DetailsId : id }
     })
       .then(data => {
-        console.log(data)
+        res.send(data)
       })
   }
 

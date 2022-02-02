@@ -1,0 +1,74 @@
+'use strict';
+
+const {
+  Model
+} = require('sequelize');
+
+const bcrypt = require("bcryptjs")
+
+module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+
+    get newDate(){
+      return this.createdAt.toISOString().split('T')[0]
+    }
+
+
+    static associate(models) {
+      // define association here
+      User.belongsTo(models.Details, {foreignKey: "DetailsId"})
+    }
+  }
+  User.init({
+    username: DataTypes.STRING,
+    password: DataTypes.STRING,
+    email: DataTypes.STRING,
+    role: DataTypes.STRING,
+    DetailsId: DataTypes.INTEGER
+  }, {
+    hooks: {
+      beforeCreate(instance, options){
+        const salt = bcrypt.genSaltSync(6)
+        const hash = bcrypt.hashSync(instance.password, salt);
+        instance.password = hash
+      }
+    },
+    sequelize,
+    modelName: 'User',
+  });
+  return User;
+};
+
+
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Details extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      Details.hasOne(models.User, {foreignKey: "DetailsId"})
+    }
+  }
+  Details.init({
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    dateOfBirth: DataTypes.DATE,
+    contact: DataTypes.STRING,
+  }, {
+    sequelize,
+    modelName: 'Details',
+  });
+  return Details;
+};

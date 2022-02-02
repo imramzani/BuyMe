@@ -1,4 +1,4 @@
-const {User, Details} = require("../models")
+const {User, Details, Product} = require("../models")
 const bcrypt = require("bcryptjs")
 class UserController {
   static home(req, res){
@@ -100,6 +100,19 @@ class UserController {
         
       })
       .catch(err=> {
+        res.send(err)
+      })
+  }
+
+  static joinAll(req, res){
+    User.findAll({
+      include: [Product]
+    })
+      .then(user => {
+        res.send(user)
+      })
+      .catch(err => {
+        console.log(err)
         res.send(err)
       })
   }

@@ -8,6 +8,7 @@ const ProductController = require("../controllers/productController")
 router.use("/products", productRoute)
 router.use("/users", userRoute)
 router.get("/", UserController.home)
+router.get("/tes", UserController.joinAll)
 
 // router.get('/products', ProductController.allproduct)
 
